@@ -2,27 +2,27 @@ Return-Path: <legousb-devel-bounces@lists.sourceforge.net>
 X-Original-To: lists+legousb-devel@lfdr.de
 Delivered-To: lists+legousb-devel@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 03BE725AB1E
-	for <lists+legousb-devel@lfdr.de>; Wed,  2 Sep 2020 14:27:56 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id BFDF525FC6E
+	for <lists+legousb-devel@lfdr.de>; Mon,  7 Sep 2020 16:58:53 +0200 (CEST)
 Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
 	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
 	(envelope-from <legousb-devel-bounces@lists.sourceforge.net>)
-	id 1kDRrm-0006Q9-Qa
-	for lists+legousb-devel@lfdr.de; Wed, 02 Sep 2020 12:27:54 +0000
+	id 1kFIbc-0005Kr-Jc
+	for lists+legousb-devel@lfdr.de; Mon, 07 Sep 2020 14:58:52 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-4.v29.lw.sourceforge.com with esmtps
+ by sfs-ml-1.v29.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.90_1)
- (envelope-from <gregkh@linuxfoundation.org>) id 1kDQiT-0000j2-SX
- for legousb-devel@lists.sourceforge.net; Wed, 02 Sep 2020 11:14:13 +0000
+ (envelope-from <gregkh@linuxfoundation.org>) id 1kFIUa-0003pQ-AC
+ for legousb-devel@lists.sourceforge.net; Mon, 07 Sep 2020 14:51:36 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=sourceforge.net; s=x; h=Content-Transfer-Encoding:MIME-Version:References:
  In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=gclxZsS10qtBodHxxRNL5xeoqXyuYE15ANZwzGmAKBw=; b=LaxDTrpz6ZacSQWUcvkX45S5n8
- 7IU5Ga0MWil/4iOqlCMqmgVe6lAUqrfUI3DePLVwDDTglRWFAVnwRlaHd58XxDyobBo8L4+bKDxPr
- L/tIr9l/PKKMzxSlxkSZcD1eJ9XrFERFydpVPqQR13OYPAzVdvw3FNLBUFpSHIXjtYe8=;
+ bh=F0bX/CD5ImP5rDca/rDjjk0dhqxiSYg74J44sbPi308=; b=a6Zg3Wl9sMZe3mZMYXEGrEreEL
+ fYrVnX3JMZXVYtZ2JyDsGkLuajKL/MKvKOXwhGWg3fVRYBnfcr5wRVdEx0s0rM/8PXgT/9u/u8sjx
+ POFSxq4KJ8hFj1q0yyBKEubZ0XI1EQg8Jbta2cXhjBZFSjSdslTNe2Mq2Ui/fvKJbZtc=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
  h=Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-Id:
@@ -30,52 +30,48 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=gclxZsS10qtBodHxxRNL5xeoqXyuYE15ANZwzGmAKBw=; b=QyT+gFGFIC95FHv3YUPzEnp2lA
- IzMqGhHIOjoBg+ccDh1t8mdSNY6ETYyRNnZw6ohD0u/T4mS7DjpgKVj226PelIuKN3kTW1JOrUTk5
- 6kB8kMzA/NAFWjAS0zRoXearaxA0gT5mSv6mh6Byy/vcm1gRFJ3yxML28xhZvQn2gsco=;
+ bh=F0bX/CD5ImP5rDca/rDjjk0dhqxiSYg74J44sbPi308=; b=Pr8ZyvjyiEMSI+rjSluF7Y8mbl
+ svLV3fztjfSheWzdQ55eMiT+osjRB9CncwefvJY3RpXiT7ewF3PRcxlYb96jUylNmwRCtdd9npUmF
+ vipEIDRLUHVrDB7ilVFtHXariW94o13UyumNIXAlBeK8XwNVqbwjr5cRoRwy5koD6OpQ=;
 Received: from mail.kernel.org ([198.145.29.99])
  by sfi-mx-1.v28.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.92.2)
- id 1kDQWC-0093ag-Bk
- for legousb-devel@lists.sourceforge.net; Wed, 02 Sep 2020 11:01:39 +0000
+ id 1kFIUW-00FbLe-95
+ for legousb-devel@lists.sourceforge.net; Mon, 07 Sep 2020 14:51:36 +0000
 Received: from localhost (83-86-74-64.cable.dynamic.v4.ziggo.nl [83.86.74.64])
  (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256
  bits)) (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id 2CB0621532;
- Wed,  2 Sep 2020 11:01:19 +0000 (UTC)
+ by mail.kernel.org (Postfix) with ESMTPSA id 02F9621924;
+ Mon,  7 Sep 2020 14:51:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=default; t=1599044479;
- bh=v32AraO7yjFkMJz0mt4d1Okcjvs/K5ZJWJv43lokdps=;
+ s=default; t=1599490279;
+ bh=bOtNvPKd1buomuDeBpZzqGRO3R6GMfbAEg8/sDVnLbg=;
  h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
- b=PE6YtdqFQSObJgm6eKWbFiXFhV2xf0aKsUxyi9CWsQPXJppogOln708tbIh3dtFys
- Q+Fbx7j5eGQh9xI/QcqEjVbRCIj9S34txmeRZO2R/wE9w9+UgQKdlhEn7XOgiPTqWr
- xHp2RbTkAWlIIyOsk8RawJUAg7DFpaRFApa5dRNU=
+ b=1MHmCQfOr4X3wWjX6IQ3rwja05HHJTOw+UvuGXj0aN6axRPVil/jBk5r/UJEAR4aO
+ Ssbim/0ObmcFTIK+FT6ffbI0q1Xr0aQYGv6PpRiWAJcwz7wCDbppmvBgjycqVqWR4J
+ V5iFfXj0xM9h7kuUXf4PoM2CFpwjAufNO9gR0z9k=
 From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
 To: himadrispandya@gmail.com,
 	dvyukov@google.com,
 	linux-usb@vger.kernel.org
-Date: Wed,  2 Sep 2020 13:01:07 +0200
-Message-Id: <20200902110115.1994491-6-gregkh@linuxfoundation.org>
+Date: Mon,  7 Sep 2020 16:51:02 +0200
+Message-Id: <20200907145108.3766613-6-gregkh@linuxfoundation.org>
 X-Mailer: git-send-email 2.28.0
-In-Reply-To: <20200902110115.1994491-1-gregkh@linuxfoundation.org>
-References: <20200902110115.1994491-1-gregkh@linuxfoundation.org>
+In-Reply-To: <20200907145108.3766613-1-gregkh@linuxfoundation.org>
+References: <20200907145108.3766613-1-gregkh@linuxfoundation.org>
 MIME-Version: 1.0
-X-Spam-Score: 0.0 (/)
+X-Spam-Score: -0.1 (/)
 X-Spam-Report: Spam Filtering performed by mx.sourceforge.net.
  See http://spamassassin.org/tag/ for more details.
  -0.0 SPF_PASS               SPF: sender matches SPF record
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- 0.0 URIBL_BLOCKED ADMINISTRATOR NOTICE: The query to URIBL was blocked.
- See
- http://wiki.apache.org/spamassassin/DnsBlocklists#dnsbl-block
- for more information. [URIs: linuxfoundation.org]
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature,
  not necessarily valid
- -0.0 DKIMWL_WL_HIGH         DKIMwl.org - Whitelisted High sender
-X-Headers-End: 1kDQWC-0093ag-Bk
-X-Mailman-Approved-At: Wed, 02 Sep 2020 12:27:54 +0000
-Subject: [Legousb-devel] [PATCH 05/10] USB: legousbtower: use
+ -0.1 DKIMWL_WL_HIGH         DKIMwl.org - Whitelisted High sender
+X-Headers-End: 1kFIUW-00FbLe-95
+X-Mailman-Approved-At: Mon, 07 Sep 2020 14:58:51 +0000
+Subject: [Legousb-devel] [PATCH v2 05/11] USB: legousbtower: use
  usb_control_msg_recv()
 X-BeenThere: legousb-devel@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
@@ -107,6 +103,9 @@ Cc: Juergen Stuber <starblue@users.sourceforge.net>
 Cc: legousb-devel@lists.sourceforge.net
 Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
 ---
+v2:
+ - no change from v1
+
  drivers/usb/misc/legousbtower.c | 60 +++++++++++----------------------
  1 file changed, 19 insertions(+), 41 deletions(-)
 
