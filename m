@@ -2,94 +2,67 @@ Return-Path: <legousb-devel-bounces@lists.sourceforge.net>
 X-Original-To: lists+legousb-devel@lfdr.de
 Delivered-To: lists+legousb-devel@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 2E1162D2F66
-	for <lists+legousb-devel@lfdr.de>; Tue,  8 Dec 2020 17:24:16 +0100 (CET)
-Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
-	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
+	by mail.lfdr.de (Postfix) with ESMTPS id 676B12D2FB7
+	for <lists+legousb-devel@lfdr.de>; Tue,  8 Dec 2020 17:31:02 +0100 (CET)
+Received: from [127.0.0.1] (helo=sfs-ml-4.v29.lw.sourceforge.com)
+	by sfs-ml-4.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
 	(envelope-from <legousb-devel-bounces@lists.sourceforge.net>)
-	id 1kmfmg-0004jL-GJ
-	for lists+legousb-devel@lfdr.de; Tue, 08 Dec 2020 16:24:14 +0000
+	id 1kmftF-0001dT-5p
+	for lists+legousb-devel@lfdr.de; Tue, 08 Dec 2020 16:31:01 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-2.v29.lw.sourceforge.com with esmtps
+ by sfs-ml-4.v29.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.90_1)
- (envelope-from
- <3oqjPXwkbADclrsdTeeXkTiibW.ZhhZeXnlXkVhgmXgm.Vhf@M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com>)
- id 1kmfme-0004jD-W0
- for legousb-devel@lists.sourceforge.net; Tue, 08 Dec 2020 16:24:12 +0000
+ (envelope-from <stern+5fdd9852@netrider.rowland.org>)
+ id 1kmftD-0001dL-L9
+ for legousb-devel@lists.sourceforge.net; Tue, 08 Dec 2020 16:30:59 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=Content-Type:To:From:Subject:Message-ID:In-Reply-To
- :Date:MIME-Version:Sender:Reply-To:Cc:Content-Transfer-Encoding:Content-ID:
- Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
- :Resent-Message-ID:References:List-Id:List-Help:List-Unsubscribe:
+ d=sourceforge.net; s=x; h=In-Reply-To:Content-Type:MIME-Version:References:
+ Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:
+ Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+ Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=HSyExJl7cd4xIkyp8toEOPl4ozCtm+NQv2BdcFpoEZc=; b=isBPwxNu8QHc9G53Cgdrxvonqs
- yAjVIFhDBBgw1KnwklG8kaotpjHyAuXFebCj2SI+7FD/oELwUxyg5UOwBaCGSNUQdRMx50UEHkla0
- FGorYPzXMwlVTGh09AEnwmEmmicC1i4AO8W3WPAGF+guTkYroFJeoYdNTM6vL4oidYAg=;
+ bh=AU19cnUdXg1kqmJf/MKSVOCNIq1841q7NQjfBN9GerU=; b=LaHQ7sqQs/aXmwv2EyTDCa/FNz
+ QmvT9WX3w7MiKtg4i6y2wqKyG0WOZWsrbI3TTuixqhXf/yjuQTw4p5VFo+6N3edZPy+QZSdcNNTm1
+ OUMJTsYSpXlrXXBDmEvbaEkw+PuB3fN/CEqh/lFxAL0dqiM/l7VkoZRJJ8zGW9vgLMcc=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=Content-Type:To:From:Subject:Message-ID:In-Reply-To:Date:MIME-Version:
- Sender:Reply-To:Cc:Content-Transfer-Encoding:Content-ID:Content-Description:
- Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
- References:List-Id:List-Help:List-Unsubscribe:List-Subscribe:List-Post:
- List-Owner:List-Archive; bh=HSyExJl7cd4xIkyp8toEOPl4ozCtm+NQv2BdcFpoEZc=; b=F
- dcbpKC4fqPAMKhsyLf7AfloPR1JlQTnKiM9YusS13HTshuNR2DPJPDS6rL7cVDAtTjq02yvE7P2Ep
- mssmbW09pqmDMvQDLr30ULZEx5kiU5Yxi2wuZpHhcvoVtODnIZl6kl5eQzewgIdc1lKG2z4jyINaf
- 2S7yuzq0oZzSvt2M=;
-Received: from mail-io1-f71.google.com ([209.85.166.71])
- by sfi-mx-1.v28.lw.sourceforge.com with esmtps
- (TLSv1.2:ECDHE-RSA-AES128-GCM-SHA256:128) (Exim 4.92.2)
- id 1kmfma-003k5Q-IQ
- for legousb-devel@lists.sourceforge.net; Tue, 08 Dec 2020 16:24:12 +0000
-Received: by mail-io1-f71.google.com with SMTP id j25so1070222iog.22
- for <legousb-devel@lists.sourceforge.net>;
- Tue, 08 Dec 2020 08:24:08 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:date:in-reply-to:message-id:subject
- :from:to;
- bh=HSyExJl7cd4xIkyp8toEOPl4ozCtm+NQv2BdcFpoEZc=;
- b=gFyZ6SQhgWk5/Yw4+aKK5mgi0pEyQjbvLa7IfQyFqQFqIHU8oyaa5K0MUk0Clsgpxx
- d2CBj2hSE7mWprkza0S7Kr/iWVQvSV+Y6vj72nyaXce3vtuwC1/wRVxUXNovkdPAlH1S
- bX28a1ESRDZ4nFhkS6DH8vhHQSVP5BB3mspwg4TRg9c2b4onJfpsYx7sK3ElX6WZpOC6
- N1xtJp0dGegieBjGtRIcu/SAyD/HDpnpHSrJwXZsfL6mPjP64jW0h60/YcMXNqIGvpe7
- PTSITO/zCo7tCuucmUevObrAPewlEpVkr7SjeUUAqRvKY5Rwx/QgZ5e/ibwO4UHdwu4k
- yamg==
-X-Gm-Message-State: AOAM5310+vW2Y6ScG2XG8a2CuO/a+E+QIXG8JY4kKRlsjRh6ixrigL+Q
- CvrwWAXCcm19aQ5CRN666UqY2kurJNM7JsR2RsJ+fUZeDqxX
-X-Google-Smtp-Source: ABdhPJxHYoyiUqUwwYS9+jZI0SJfT9+SzZyPXCYnkfWgYNGZwBVj7ggFtyKt4Au1zc2qCeZTaib8l2L8pQvOMKodUzTGs2Vl/kQM
+ h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To
+ :From:Date:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
+ Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+ :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
+ List-Post:List-Owner:List-Archive;
+ bh=AU19cnUdXg1kqmJf/MKSVOCNIq1841q7NQjfBN9GerU=; b=CAu1fcAK6Ghf4SyP9ChwNvAV9G
+ pXDrzqkVXF2LeUZrynX/vvCVrtAUAL0xQUBeLJ27SNb4irqJfyujke0H7exNqd9xO8vtdiLfTIPhp
+ 4hqsj7CSYerbPDinUyms9tNtkpoYpyZRmqt1eoCDN5+KdQeq3qdkqsAxqWrYLl8WmrQE=;
+Received: from netrider.rowland.org ([192.131.102.5])
+ by sfi-mx-3.v28.lw.sourceforge.com with smtp (Exim 4.92.2)
+ id 1kmft9-006muh-Bs
+ for legousb-devel@lists.sourceforge.net; Tue, 08 Dec 2020 16:30:59 +0000
+Received: (qmail 1301383 invoked by uid 1000); 8 Dec 2020 11:30:42 -0500
+Date: Tue, 8 Dec 2020 11:30:42 -0500
+From: Alan Stern <stern@rowland.harvard.edu>
+To: Greg KH <greg@kroah.com>
+Message-ID: <20201208163042.GD1298255@rowland.harvard.edu>
+References: <20201208160703.GB1298255@rowland.harvard.edu>
+ <000000000000f0fb0d05b5f65e64@google.com>
 MIME-Version: 1.0
-X-Received: by 2002:a05:6602:2b01:: with SMTP id
- p1mr17378546iov.156.1607444642985; 
- Tue, 08 Dec 2020 08:24:02 -0800 (PST)
-Date: Tue, 08 Dec 2020 08:24:02 -0800
-In-Reply-To: <20201208160703.GB1298255@rowland.harvard.edu>
-X-Google-Appengine-App-Id: s~syzkaller
-X-Google-Appengine-App-Id-Alias: syzkaller
-Message-ID: <000000000000f0fb0d05b5f65e64@google.com>
-From: syzbot <syzbot+9be25235b7a69b24d117@syzkaller.appspotmail.com>
-To: andreyknvl@google.com, gregkh@linuxfoundation.org, 
- legousb-devel@lists.sourceforge.net, linux-kernel@vger.kernel.org, 
- linux-usb@vger.kernel.org, starblue@users.sourceforge.net, 
- stern@rowland.harvard.edu, syzkaller-bugs@googlegroups.com
-X-Spam-Score: 3.1 (+++)
+Content-Disposition: inline
+In-Reply-To: <000000000000f0fb0d05b5f65e64@google.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
+X-Spam-Score: 0.2 (/)
 X-Spam-Report: Spam Filtering performed by mx.sourceforge.net.
  See http://spamassassin.org/tag/ for more details.
  0.0 URIBL_BLOCKED ADMINISTRATOR NOTICE: The query to URIBL was blocked.
  See
  http://wiki.apache.org/spamassassin/DnsBlocklists#dnsbl-block
- for more information. [URIs: appspotmail.com]
- -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/, no
- trust [209.85.166.71 listed in list.dnswl.org]
- 0.3 FROM_LOCAL_HEX         From: localpart has long hexadecimal sequence
+ for more information. [URIs: harvard.edu]
+ -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
  0.2 HEADER_FROM_DIFFERENT_DOMAINS From and EnvelopeFrom 2nd level mail
  domains are different
- -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
- [209.85.166.71 listed in wl.mailspike.net]
  -0.0 SPF_PASS               SPF: sender matches SPF record
- 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- 2.5 SORTED_RECIPS          Recipient list is sorted by address
-X-Headers-End: 1kmfma-003k5Q-IQ
-Subject: Re: [Legousb-devel] general protection fault in tower_disconnect
+X-Headers-End: 1kmft9-006muh-Bs
+Subject: [Legousb-devel] [PATCH] USB: legotower: fix logical error in recent
+ commit
 X-BeenThere: legousb-devel@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -101,26 +74,42 @@ List-Post: <mailto:legousb-devel@lists.sourceforge.net>
 List-Help: <mailto:legousb-devel-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/legousb-devel>, 
  <mailto:legousb-devel-request@lists.sourceforge.net?subject=subscribe>
+Cc: andreyknvl@google.com, legousb-devel@lists.sourceforge.net,
+ syzkaller-bugs@googlegroups.com, linux-usb@vger.kernel.org,
+ starblue@users.sourceforge.net
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: legousb-devel-bounces@lists.sourceforge.net
 
-Hello,
-
-syzbot has tested the proposed patch and the reproducer did not trigger any issue:
+Commit d9f0d82f06c6 ("USB: legousbtower: use usb_control_msg_recv()")
+contained an elementary logical error.  The check of the return code
+from the new usb_control_msg_recv() function was inverted.
 
 Reported-and-tested-by: syzbot+9be25235b7a69b24d117@syzkaller.appspotmail.com
+Signed-off-by: Alan Stern <stern@rowland.harvard.edu>
 
-Tested on:
+---
 
-commit:         08a02f95 USB: add RESET_RESUME quirk for Snapscan 1212
-git tree:       https://git.kernel.org/pub/scm/linux/kernel/git/gregkh/usb.git
-kernel config:  https://syzkaller.appspot.com/x/.config?x=d24ee9ecd7ce968e
-dashboard link: https://syzkaller.appspot.com/bug?extid=9be25235b7a69b24d117
-compiler:       gcc (GCC) 10.1.0-syz 20200507
-patch:          https://syzkaller.appspot.com/x/patch.diff?x=1406a80f500000
 
-Note: testing is done by a robot and is best-effort only.
+[as1950]
+
+
+ drivers/usb/misc/legousbtower.c |    2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+Index: usb-devel/drivers/usb/misc/legousbtower.c
+===================================================================
+--- usb-devel.orig/drivers/usb/misc/legousbtower.c
++++ usb-devel/drivers/usb/misc/legousbtower.c
+@@ -797,7 +797,7 @@ static int tower_probe(struct usb_interf
+ 				      &get_version_reply,
+ 				      sizeof(get_version_reply),
+ 				      1000, GFP_KERNEL);
+-	if (!result) {
++	if (result) {
+ 		dev_err(idev, "get version request failed: %d\n", result);
+ 		retval = result;
+ 		goto error;
 
 
 _______________________________________________
