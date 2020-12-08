@@ -2,19 +2,19 @@ Return-Path: <legousb-devel-bounces@lists.sourceforge.net>
 X-Original-To: lists+legousb-devel@lfdr.de
 Delivered-To: lists+legousb-devel@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 64FDC2D2F38
+	by mail.lfdr.de (Postfix) with ESMTPS id 5E0752D2F36
 	for <lists+legousb-devel@lfdr.de>; Tue,  8 Dec 2020 17:14:32 +0100 (CET)
 Received: from [127.0.0.1] (helo=sfs-ml-3.v29.lw.sourceforge.com)
 	by sfs-ml-3.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
 	(envelope-from <legousb-devel-bounces@lists.sourceforge.net>)
-	id 1kmfdH-0002sd-5U
+	id 1kmfdH-0002sX-4s
 	for lists+legousb-devel@lfdr.de; Tue, 08 Dec 2020 16:14:31 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-1.v29.lw.sourceforge.com with esmtps
+ by sfs-ml-4.v29.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.90_1)
  (envelope-from
  <3C6TPXwkbAJYIOPA0BB4H0FF83.6EE6B4KI4H2EDJ4DJ.2EC@M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com>)
- id 1kmfTh-0000zw-ND
+ id 1kmfTh-0000HJ-Le
  for legousb-devel@lists.sourceforge.net; Tue, 08 Dec 2020 16:04:37 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=sourceforge.net; s=x; h=Content-Type:Cc:To:From:Subject:Message-ID:
@@ -22,69 +22,68 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:References:List-Id:List-Help:
  List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=hpv3KpgmoGcPwhMUS1qClauW4ZVADBQBTB64O2CLwR4=; b=LjxqnAURoRJvlsMsScGLFJRDjs
- Fbi9F+/Ap7Dj2E2+n32t5F5BUdkyexW4Kh/N9skY8iRJRiALu9se6kkwELWKE3Dvs8wrP7Yd9Y4eo
- kAwp3JvfgQutb6q9F1rBbOOMFVQRqtyEvGt3RWOGu/OZDLAeMUYfGoioAVk36jthzJxI=;
+ bh=JSyWoWyBEFIPX2b1ZTI+QDTg+k85MwyzaBHUirvFa+4=; b=HM75dPlha9mqIqjtZggsmBoMY7
+ o9fTOiVWedNYvMVhddp2NwG3WmX4639HDVILVqNBCCBYAJ0vuho+QtqNTY6Dfk4MMI+1mNghCU9NF
+ WLXSzKOyeiA2njo/jBNZoyySyeUtPH9zH+j9eUyPJies4WU+Rhyj473kSR95J2UG1v4c=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
  h=Content-Type:Cc:To:From:Subject:Message-ID:In-Reply-To:Date:MIME-Version:
  Sender:Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:
  Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
  References:List-Id:List-Help:List-Unsubscribe:List-Subscribe:List-Post:
- List-Owner:List-Archive; bh=hpv3KpgmoGcPwhMUS1qClauW4ZVADBQBTB64O2CLwR4=; b=Z
- DO3XHXrox2+uSOQEUdupL5yKsNOakWQvIUJFcJ629/9qLSq609k0C8YYepOuFDTq7fD1atKHeUUnS
- rWEG95NdL/pdRRI5+5vreNCo0IkjxHI4KifVPHU5ubPY5nv8ljZYp9FuKnob8G6Yzw50g/pzrtw59
- t+pCLiPk2v2r03rQ=;
-Received: from mail-il1-f197.google.com ([209.85.166.197])
+ List-Owner:List-Archive; bh=JSyWoWyBEFIPX2b1ZTI+QDTg+k85MwyzaBHUirvFa+4=; b=f
+ NCsqRH/eHEE3oEzrgrBKGrnvsKyxyg5dDfKcGpR4F+uMXDCtlAL5w6TSWGbPWrHsm0osExaeNZR30
+ TETQxneemimCZiEEKIdB0dTAd2U+6P1rKY3nlKpuo4nnK2OwHvSrSXe2tdybIaMRyJsN4g9CjJ5mI
+ oUWYe7sJgGbKoFxE=;
+Received: from mail-il1-f200.google.com ([209.85.166.200])
  by sfi-mx-3.v28.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES128-GCM-SHA256:128) (Exim 4.92.2)
- id 1kmfTd-006lW8-41
+ id 1kmfTd-006lW9-6u
  for legousb-devel@lists.sourceforge.net; Tue, 08 Dec 2020 16:04:37 +0000
-Received: by mail-il1-f197.google.com with SMTP id j20so13459190ilk.0
+Received: by mail-il1-f200.google.com with SMTP id j18so16274913ilc.9
  for <legousb-devel@lists.sourceforge.net>;
  Tue, 08 Dec 2020 08:04:33 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:mime-version:date:in-reply-to:message-id:subject
  :from:to:cc;
- bh=hpv3KpgmoGcPwhMUS1qClauW4ZVADBQBTB64O2CLwR4=;
- b=Wvtldnd3S5ZqoCrHJkps1QANyJQvv5c+eq2g/d3dsLPCoPz/1dUqZlWMQ7z5O+wtr3
- Zch0tUnNi76XDqF4iu1rMd2zorqT1YdVKFXoJeJlGrETHAz1tiKgh0PplKkKG/Efe2df
- H1rmhINr2vBI+yo1u8i9Bv5BlisKauZB0wsxe0NtxN3XQSSjW9DhNfZppvy6e+6CVxyH
- I40RvtDhiCLOuaj00PSLMLSNZDL5eF6FZoD/SUmtBp7I59h23l/rk49E0N9sxPlDAQpn
- czJHY4T+eCp6ftaMivV4UGPOTAkarqFQYlDS6QXCpkXKHBz/1vCJCcudu+Zug1572BC4
- pc7Q==
-X-Gm-Message-State: AOAM531O86T8PzaQ8f2JHwHkhpdalRbVOtvUEyP0prt23uEzFzvOshNL
- x8haJGKtDATwoFm4tMAL/ZyrtrhglfCIT/gyRpCuKGPtYLnv
-X-Google-Smtp-Source: ABdhPJxIGVVsKJL/d5PRR20afDIr8XtYWWU72tQIziAZzpTGYJm0Fp5YA4Zy8Ze/FdzNzHEb6E3CdYhJpubtEzHDbKXmyUhRLSD/
+ bh=JSyWoWyBEFIPX2b1ZTI+QDTg+k85MwyzaBHUirvFa+4=;
+ b=KKhgk+h+7u4XoJkyarlyTJmgk8tQSP3AqDBG4b/igmOrrjYnRxBhUTL8rBR4ZqklG/
+ 1KExEBeCT7ZpnNMHtIXb+NKC9EY0EvTvSDo3LPYq1sWw1dHkv03csn+f015aNsdnS6q9
+ EkPgO9wyTzgGchC+qGyPHHEmCqBX82zk0sLw+2MO+QXIhp5/9XtH500hJsvjojjoivQB
+ sgXJsnFx/Eb7XRPTKlOgATJYW8uYkAH6aJs6Ni/XCBBYlkON755qLVuQUYoBRW8dvmy7
+ 9yX78gcwlEwSn6QlRItw9fqqQ0dqyfUyVjNd5EmwbaFeUzzRvzYCsMvfRSkI447bm2a3
+ wQWg==
+X-Gm-Message-State: AOAM533nS2gf7Cs8is0ls8ctq3ELRBQ5g3zNaU5X6ZjMf0Aq3FyxPxo+
+ LWZdp5xR8/byLUhukFxfwnF7cW27N1GWej8EGQN6WCknm6Wn
+X-Google-Smtp-Source: ABdhPJzDWsnwO7MsPjoVC+BbCyQXOJg057+CSMvkBaOba4jVO/pQejUY3pAwlZ7mY7R/WoYvVxh0GYdyWfjyPUXS8zMIN1tr1CGs
 MIME-Version: 1.0
-X-Received: by 2002:a05:6e02:1003:: with SMTP id
- n3mr13962774ilj.189.1607443467522; 
+X-Received: by 2002:a92:d34c:: with SMTP id a12mr13210746ilh.188.1607443467716; 
  Tue, 08 Dec 2020 08:04:27 -0800 (PST)
 Date: Tue, 08 Dec 2020 08:04:27 -0800
 In-Reply-To: <20201208160425.GA1298255@rowland.harvard.edu>
 X-Google-Appengine-App-Id: s~syzkaller
 X-Google-Appengine-App-Id-Alias: syzkaller
-Message-ID: <000000000000e0d6f805b5f61882@google.com>
+Message-ID: <000000000000e3cf4905b5f618e1@google.com>
 From: syzbot <syzbot+9be25235b7a69b24d117@syzkaller.appspotmail.com>
 To: Alan Stern <stern@rowland.harvard.edu>
 X-Spam-Score: 0.6 (/)
 X-Spam-Report: Spam Filtering performed by mx.sourceforge.net.
  See http://spamassassin.org/tag/ for more details.
+ 0.3 FROM_LOCAL_HEX         From: localpart has long hexadecimal sequence
  0.0 URIBL_BLOCKED ADMINISTRATOR NOTICE: The query to URIBL was blocked.
  See
  http://wiki.apache.org/spamassassin/DnsBlocklists#dnsbl-block
- for more information. [URIs: googlegroups.com]
- -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/, no
- trust [209.85.166.197 listed in list.dnswl.org]
- 0.3 FROM_LOCAL_HEX         From: localpart has long hexadecimal sequence
+ for more information. [URIs: appspotmail.com]
  0.2 HEADER_FROM_DIFFERENT_DOMAINS From and EnvelopeFrom 2nd level mail
  domains are different
- -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
- [209.85.166.197 listed in wl.mailspike.net]
  -0.0 SPF_PASS               SPF: sender matches SPF record
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
-X-Headers-End: 1kmfTd-006lW8-41
+ -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
+ [209.85.166.200 listed in wl.mailspike.net]
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/, no
+ trust [209.85.166.200 listed in list.dnswl.org]
+X-Headers-End: 1kmfTd-006lW9-6u
 X-Mailman-Approved-At: Tue, 08 Dec 2020 16:14:29 +0000
 Subject: Re: [Legousb-devel] general protection fault in tower_disconnect
 X-BeenThere: legousb-devel@lists.sourceforge.net
@@ -198,10 +197,6 @@ want 2 args (repo, branch), got 3
 >  		retval = result;
 >  		goto error;
 >
-> -- 
-> You received this message because you are subscribed to the Google Groups "syzkaller-bugs" group.
-> To unsubscribe from this group and stop receiving emails from it, send an email to syzkaller-bugs+unsubscribe@googlegroups.com.
-> To view this discussion on the web visit https://groups.google.com/d/msgid/syzkaller-bugs/20201208160425.GA1298255%40rowland.harvard.edu.
 
 
 _______________________________________________
